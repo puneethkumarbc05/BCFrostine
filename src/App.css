@@ -1,0 +1,140 @@
+.e-row1 {
+  font-weight: bold;
+}
+
+.redcolor {
+  background-color: red;
+}
+
+.bluecolor {
+  background-color: blue;
+}
+
+.sitedropmenu {
+  position: absolute;
+  top: calc(100% - 2px);
+  background: black;
+  z-index: -1;
+  text-transform: capitalize;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  width: 357px;
+  /*    left: -10em;*/
+  /*    left:85px;*/
+  right: 0;
+  border-radius: 10px;
+}
+
+
+.pop1 {
+  padding: 10px;
+  position: absolute;
+  width: 210px;
+  min-height: 210px;
+  border: 1px solid black;
+  text-align: center;
+  /* background-color: black; 
+   color: white; */
+  font-weight: 1000;
+}
+
+.pop1:before {
+  content: '';
+  position: absolute;
+  top: 10;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  transform: rotate(45deg);
+}
+
+ol {
+  list-style: none;
+  list-style-type: none;
+}
+
+.bold {
+  font-weight: 500;
+  margin-left: .3em;
+}
+
+.normal {
+  font-weight: normal;
+  margin-left: .3em;
+}
+
+/* .scroller{
+  /* background-color: aqua; */
+/* scrollbar-width: 0px */
+/* }  */
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.active {
+  background: green;
+}
+
+.upload-container {
+  width: 12rem;
+  height: 2.5rem;
+  border: 1px dashed black;
+  display: none;
+}
+
+td, th {
+  border: 1px solid grey;
+  padding: 0 1rem;
+}
+
