@@ -28,6 +28,7 @@ import Tabbreadcrums from './Tab/Tabbreadcrums';
 import BaseUrlToFile from './BaseUrlToFile/BaseUrlToFile';
 import StoreFileInSession from './StoreFileInSession/StoreFileInSession';
 import BaseUrlTobinaryToFile from './BaseUrlToFile/BaseUrlTobinaryToFile';
+import Rcpa from './rcpa/Rcpa';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
       <Link to='/BaseUrlToFile' ></Link>
       <Link to='/StoreFileInSession' ></Link>
       <Link to='/BaseUrlTobinaryToFile' ></Link>
+      <Link to='/Rcpa' ></Link>
       <Routes>
         <Route path='abbottcontainer' element={<Abbottcontainer />} />
         {/* <Route path='abbott_page_2_container' element={<Abbott_page_2_container />} /> */}
@@ -87,6 +89,7 @@ function App() {
         <Route path='BaseUrlToFile' element={<BaseUrlToFile />} />
         <Route path='StoreFileInSession' element={<StoreFileInSession />} />
         <Route path='BaseUrlTobinaryToFile' element={<BaseUrlTobinaryToFile />} />
+        <Route path='Rcpa' element={<Rcpa />} />
       </Routes>
     </BrowserRouter>
   )
