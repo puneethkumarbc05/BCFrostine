@@ -2,7 +2,7 @@ import { dateToInt } from '@syncfusion/ej2-react-spreadsheet'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Accordion } from 'react-bootstrap'
-import { doctordata, chemist, stockiest, hospital, type } from './datas'
+import { doctordata, chemist, stockiest, hospital, type, hello, rest } from './datas'
 
 const Rcpa = () => {
     const [dateval, setDateval] = useState()
@@ -179,6 +179,7 @@ const Rcpa = () => {
 
     return (
         <div>
+            
             <input type='text' value={dateval} />
             <div>
                 <div style={{ width: '500px', height: '30px', border: '1px solid black', display: 'flex' }} >

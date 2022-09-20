@@ -3,3 +3,19 @@ export const chemist = ['--Select--', 'chemist 1', 'chemist 2', 'chemist 3', 'ch
 export const hospital = ['--Select--', 'hospital 1', 'hospital 2', 'hospital 3', 'hospital 4', 'hospital 5']
 export const stockiest = ['--Select--', 'stockiest 1', 'stockiest 2', 'stockiest 3', 'stockiest 4', 'stockiest 5']
 export const type = ['--Select', 'chemist', 'hospital', 'stockiest']
+
+export const rest = () => {
+    return (
+        <div>
+            REST
+        </div>
+    )
+}
+
+export const hello = () => {
+    return (
+        <div>
+            HEllo
+        </div>
+    )
+}

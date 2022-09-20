@@ -9,24 +9,53 @@ const BaseUrlTobinaryToFile = () => {
     // const url = '/abbott/sfa360dev/Va/MKT001/409/download%20%283%29.jpg'
     const url = '/abbott/sfa360dev/Va/MKT001/411/HTMLS.zip'
     // const url = 'https://cdn.pixabay.com/photo/2022/08/13/09/05/lion-7383228__340.jpg'
-    // const url = '/file/lq84udlqnjnzo3a/HTMLS.zip'
+    // const url = 'https://qasfa360blob.blob.core.windows.net/file/lq84udlqnjnzo3a/HTMLS.zip'
     // const url = 'https://cdn.pixabay.com/photo/2022/08/22/10/28/tihany-7403356__340.jpg'
+    // const url = 'abbott/file2.html'
+    // const url = '/sfa360/file3.html'
+    // "procy": "https://qasfa360blob.blob.core.windows.net",
 
     const handleChange = (e) => {
         setUploadFile(e.target.files[0])
         console.log(e.target.files[0])
+        if (e.target.files[0].name.endsWith('.jpg')) {
+            console.log('jpg');
+        }
+        else if (e.target.files[0].name.endsWith('.mp4')) {
+            console.log('mp4')
+        }
     }
 
     useEffect(() => {
-
         fetch(url)
             .then((res) => res.blob())
             .then((myBlob) => {
-                // console.log(myBlob);
-                const file = new File([myBlob], 'HTMLS.zip', { type: myBlob.type })
-                console.log(file)
-                unzip(file)
+                const file = new File([myBlob], 'My File', { type: myBlob.type })
+                return file
+            }).then(f => {
+                const reader = new FileReader()
+                reader.onload = async (f) => {
+                    console.log(f)
+                    const text = (f.target)
+                    console.log(text);
+                }
             })
+        // console.log(url);
+        // fetch(url)
+        //     .then((res) => res.blob())
+        //     .then((myBlob) => {
+        //         // console.log(myBlob);
+        //         const file = new File([myBlob], 'My file', { type: myBlob.type })
+        //         console.log('file is ready')
+        //         // unzip(file)
+        //         // text(file)
+        //         const reader = new FileReader()
+        //         reader.onload = async (file) => {
+        //             const text = file.target
+        //             console.log(text)
+        //         }
+        //         reader.readAsText(file)
+        //     })
 
 
         // const myFile = new File([myBlob], '/abbott/sfa360dev/Va/MKT001/409/download%20%283%29.jpg', {
@@ -48,8 +77,24 @@ const BaseUrlTobinaryToFile = () => {
         // }).then((file) => {
         //     unzip(file)
         // })
+
+        // funcfile()
     }, [])
 
+    const funcfile = async () => {
+        const response = await fetch(url)
+        const data = await response.blob()
+        const metadata = { type: 'application/x-zip-compressed' }
+        const file = new File([data], 'puneeth', metadata)
+        console.log(file)
+        unzip(file)
+        // const reader = new FileReader()
+        // reader.onload = async (file) => {
+        //     const text = (file.target.result)
+        //     console.log(text);
+        // }
+        // reader.readAsText(file)
+    }
 
 
     const getBase64FromUrl = async (url) => {
@@ -76,6 +121,16 @@ const BaseUrlTobinaryToFile = () => {
         })
     }
 
+    const text = (item) => {
+        console.log('converting file to text', item)
+        const render = new FileReader()
+        render.onload = async (item) => {
+            const text = (item.target.result)
+            console.log(text, 'ytetxttttttttttttttttttttttt');
+        }
+        render.readAsText(item)
+    }
+
 
     return (
         <div>
@@ -86,7 +141,7 @@ const BaseUrlTobinaryToFile = () => {
                     <button><a href={URL.createObjectURL(uploadFile)} download={uploadFile.name} >download</a></button>
                 </div>
             } */}
-            <iframe src='http://docs.google.com/gview?url=https://qasfa360blob.blob.core.windows.net/abbott/file1.html&embedded=true' ></iframe>
+            {/* <iframe src='http://docs.google.com/gview?url=https://qasfa360blob.blob.core.windows.net/abbott/file1.html&embedded=true' ></iframe> */}
         </div>
     )
 }
