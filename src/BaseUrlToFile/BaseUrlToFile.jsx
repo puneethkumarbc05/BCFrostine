@@ -9,6 +9,7 @@ const BaseUrlToFile = () => {
     // const url = 'http://docs.google.com/gview?url=https://qasfa360blob.blob.core.windows.net/abbott/staqtpsn.pdf&embedded=true'
     // const url = 'https://corsproxy.example/https://qasfa360blob.blob.core.windows.net/abbott/sfa360dev/Va/MKT001/368/HTMLS.zip'
     const fileName = 'myFile.jpg'
+    
 
     useEffect(() => {
         // fetch(url)
@@ -29,7 +30,7 @@ const BaseUrlToFile = () => {
         reader.onload = function (base64) {
             localStorage["file111111111"] = base64;
         }
-        reader.readAsDataURL(url);
+        // reader.readAsDataURL(url);
 
 
     }, [])
