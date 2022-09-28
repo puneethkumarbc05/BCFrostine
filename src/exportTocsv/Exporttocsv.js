@@ -11,7 +11,7 @@ const Exporttocsv = () => {
 
     const exportXlsx = (reportTable, lable) => {
         let data1 = [];
-        reportTable2.map((obj) => {
+        reportTable.map((obj) => {
             let dynamicObj = {};
             Object.keys(obj).map((res, i) => {
                 dynamicObj[res] = obj[res];
