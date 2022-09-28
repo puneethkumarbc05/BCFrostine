@@ -29,6 +29,8 @@ import BaseUrlToFile from './BaseUrlToFile/BaseUrlToFile';
 import StoreFileInSession from './StoreFileInSession/StoreFileInSession';
 import BaseUrlTobinaryToFile from './BaseUrlToFile/BaseUrlTobinaryToFile';
 import Rcpa from './rcpa/Rcpa';
+import React_Slick from './react_slick/React_Slick';
+import Takebasiccopm from './basiccomponent/Takebasiccopm';
 
 function App() {
   return (
@@ -61,6 +63,8 @@ function App() {
       <Link to='/StoreFileInSession' ></Link>
       <Link to='/BaseUrlTobinaryToFile' ></Link>
       <Link to='/Rcpa' ></Link>
+      <Link to='/React_Slick' ></Link>
+      <Link to='/Takebasiccopm' ></Link>
       <Routes>
         <Route path='abbottcontainer' element={<Abbottcontainer />} />
         {/* <Route path='abbott_page_2_container' element={<Abbott_page_2_container />} /> */}
@@ -90,6 +94,8 @@ function App() {
         <Route path='StoreFileInSession' element={<StoreFileInSession />} />
         <Route path='BaseUrlTobinaryToFile' element={<BaseUrlTobinaryToFile />} />
         <Route path='Rcpa' element={<Rcpa />} />
+        <Route path='React_Slick' element={<React_Slick />} />
+        <Route path='Takebasiccopm' element={<Takebasiccopm />} />
       </Routes>
     </BrowserRouter>
   )
