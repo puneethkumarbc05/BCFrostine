@@ -31,6 +31,9 @@ import BaseUrlTobinaryToFile from './BaseUrlToFile/BaseUrlTobinaryToFile';
 import Rcpa from './rcpa/Rcpa';
 import React_Slick from './react_slick/React_Slick';
 import Takebasiccopm from './basiccomponent/Takebasiccopm';
+import Bcflazyload from './bcflazyload/Bcflazyload';
+import ExporttoXls from './ExporttoXls/ExporttoXls';
+import Onclickdropdown from './Onclickdropdown/Onclickdropdown';
 
 function App() {
   return (
@@ -65,6 +68,7 @@ function App() {
       <Link to='/Rcpa' ></Link>
       <Link to='/React_Slick' ></Link>
       <Link to='/Takebasiccopm' ></Link>
+      <Link to='/bcflazyload' ></Link>
       <Routes>
         <Route path='abbottcontainer' element={<Abbottcontainer />} />
         {/* <Route path='abbott_page_2_container' element={<Abbott_page_2_container />} /> */}
@@ -96,7 +100,10 @@ function App() {
         <Route path='Rcpa' element={<Rcpa />} />
         <Route path='React_Slick' element={<React_Slick />} />
         <Route path='Takebasiccopm' element={<Takebasiccopm />} />
-      </Routes>
+        <Route path='bcflazyload' element={<Bcflazyload />} />
+        <Route path='ExporttoXls' element={<ExporttoXls />} />
+        <Route path='Onclickdropdown' element={<Onclickdropdown />} />
+      </Routes> 
     </BrowserRouter>
   )
 }

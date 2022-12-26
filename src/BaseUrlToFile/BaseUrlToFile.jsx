@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import JSZip from 'jszip'
+import axios from 'axios'
 
 const BaseUrlToFile = () => {
 
     const fileName = 'myFile.zip'
-    const url = 'https://dev.sfa360.in/api/public/Edetail360Test_File.zip'
+    const url = 'api/public/Edetail360Test_File.zip'
     const [data, setData] = useState([])
     const [src, setSrc] = useState('')
-
 
     useEffect(() => {
         fetch(url)
@@ -18,6 +18,7 @@ const BaseUrlToFile = () => {
                 console.log(file, 'main fileeeeeeeeee')
                 unzip(file)
             })
+        abc()
     }, [])
 
     const unzip = async (file) => {
@@ -74,9 +75,13 @@ const BaseUrlToFile = () => {
         };
     };
 
-    const abc = (file) => {
-        const url = URL.createObjectURL(file)
-        console.log(url)
+    const abc = async (file) => {
+        try {
+            const res = await axios.post('/api/ExternalAPI/getPendingQuestionCount', { employeeCode: "4219", keyString: "onAXWdZk6%1$GF6ii5HFnUEeP0R",  })
+            console.log(res);
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const funcimage = (e) => {

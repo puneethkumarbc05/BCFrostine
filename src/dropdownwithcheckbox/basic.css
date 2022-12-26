@@ -1,0 +1,12 @@
+.container-basic-comp {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-comp-label {
+  color: #6c757d;
+  font-family: OpenSans-Semibold;
+  font-size: 0.75rem;
+  letter-spacing: 0.6px;
+  margin-bottom: 0.4rem;
+}

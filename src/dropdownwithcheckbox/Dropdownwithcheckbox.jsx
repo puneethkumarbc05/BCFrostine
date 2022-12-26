@@ -1,14 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Downarrow } from './components/Downarrow'
 import { Uparrow } from './components/Uparrow'
-import { Form } from 'react-bootstrap'
+import { Col, Form, Row } from 'react-bootstrap'
 import "../App.css"
 import "./dropdown.css"
+import Basiccomponentmultipleselction from './Basiccomponentmultipleselction'
 
 export const Dropdownwithcheckbox = () => {
     const btnref = useRef(null)
     const [drop, setDrop] = useState(false)
     const [selected, setselected] = useState('')
+
+    const [val1, setVal1] = useState('0 Selected')
+    const [val2, setVal2] = useState('')
+
+    const [regionDDL, setRegionDDL] = useState([])
+    const [divisionDDL, setDivisionDDL] = useState([])
 
 
     const [options, setOptions] = useState([
@@ -20,6 +27,97 @@ export const Dropdownwithcheckbox = () => {
         // { "c_code": "C00010", "c_name": "DIABETOLOGIST", "flg": "1" },
         // { "c_code": "C00003", "c_name": "ENT", "flg": "1" }
     ])
+
+    const asas = [
+        {
+            "c_name": "--All--",
+            "code": "0",
+            flg: 0
+        },
+        {
+            "c_name": "123456789",
+            "code": "R000063",
+            flg: 0
+        },
+        {
+            "c_name": "Aaa Region",
+            "code": "R000054",
+            flg: 0
+        },
+        {
+            "c_name": "Agra",
+            "code": "R000052",
+            flg: 0
+        },
+        {
+            "c_name": "Ahmedabad1",
+            "code": "R000006",
+            flg: 0
+        },
+        {
+            "c_name": "Vijayawada",
+            "code": "R000029",
+            flg: 0
+        },
+        {
+            "c_name": "West Bengal Rest",
+            "code": "R000037",
+            flg: 0
+        }
+    ]
+
+    const des = [
+        {
+            "c_name": "--All--",
+            "code": "0",
+            flg: 0
+        },
+        {
+            "c_name": "Super Admin",
+            "code": "9",
+            flg: 0
+        },
+        {
+            "c_name": "Admin",
+            "code": "8",
+            flg: 0
+        },
+        {
+            "c_name": "Level 7",
+            "code": "7",
+            flg: 0
+        },
+        {
+            "c_name": "Level 6",
+            "code": "6",
+            flg: 0
+        },
+        {
+            "c_name": "Level 5",
+            "code": "5",
+            flg: 0
+        },
+        {
+            "c_name": "Level 4",
+            "code": "4",
+            flg: 0
+        },
+        {
+            "c_name": "Level 3",
+            "code": "3",
+            flg: 0
+        },
+        {
+            "c_name": "Level 2",
+            "code": "2",
+            flg: 0
+        },
+        {
+            "c_name": "Level 1",
+            "code": "1",
+            flg: 0
+        }
+    ]
 
     const a = ['1', '2', '3', '4']
 
@@ -62,6 +160,9 @@ export const Dropdownwithcheckbox = () => {
         setFilter(org)
         const string = 'abc'
         console.log(string.split(','))
+
+
+        getdetails()
     }, [])
 
     const gettext = () => {
@@ -101,6 +202,63 @@ export const Dropdownwithcheckbox = () => {
         }
     }
 
+    const getdetails = () => {
+        const reg = {}
+        asas.map(item => {
+            const obj1 = {
+                [item.code]: item
+            }
+            Object.assign(reg, obj1)
+        })
+        setRegionDDL(reg)
+
+        const divi = des.map(item => {
+            return {
+                [item.code]: item
+            }
+        })
+        setDivisionDDL(divi)
+    }
+
+    const handleClickRegion = (id) => {
+        const tempobj = { ...regionDDL }
+        if (id === '0') {
+            if (tempobj[id].flg === 0) {
+                Object.values(tempobj).map(item => {
+                    console.log(item.flg)
+                    item.flg = 1
+                })
+            }
+            else {
+                Object.values(tempobj).map(item => {
+                    item.flg = 0
+                })
+            }
+
+        }
+        else {
+            if (tempobj[id].flg === 0) {
+                tempobj[id].flg = 1
+            }
+            else {
+                tempobj[id].flg = 0
+            }
+        }
+
+        let count = 0
+        Object.values(tempobj).map(item => {
+            if (item.flg === 1) count++
+        })
+
+
+        setVal1(`${count} Selected`)
+        setRegionDDL(tempobj)
+    }
+
+    const handleSearch = (val) => {
+        setVal1(val)
+    }
+
 
     return (
         <div className='container'>
@@ -128,6 +286,28 @@ export const Dropdownwithcheckbox = () => {
                 </div> : null
                 }
             </Form>
+            <Row>
+                <Col lg={4} md={4} sm={6}>
+                    <Basiccomponentmultipleselction
+                        data={regionDDL}
+                        errorMessage='PLease Select a Region'
+                        label='Region'
+                        value={val1}
+                        getValue={handleClickRegion}
+                        handleChange={handleSearch}
+                    />
+                </Col>
+                {/* <Col lg={4} md={4} sm={6}>
+                    <Basiccomponentmultipleselction
+                        data={divisionDDL}
+                        errorMessage=''
+                        label='Designation'
+                        value={val2}
+                        setValue={setVal2}
+                    />
+                </Col> */}
+            </Row>
+
 
         </div >
     )

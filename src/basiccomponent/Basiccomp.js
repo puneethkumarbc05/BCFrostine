@@ -1,12 +1,16 @@
 import React from 'react'
 import { Col, Dropdown, Row } from 'react-bootstrap'
 
-const Basiccomp = ({ val, filter, handleChangetick, handleChangeFilter }) => {
+const Basiccomp = ({ val, filter, handleChangetick, handleChangeFilter, handleClick }) => {
 
+    const a = 10
     const inputContainer = { display: 'flex', border: '1px solid #6c757d64', width: '100%', height: '2.5em', minHeight: '2.5em', borderRadius: '5px', backgroundColor: 'white', alignItems: 'center', paddingRight: '0', marginBottom: '.4rem', outline: "none" }
     const inputBox = { outline: "none", border: 'none', width: '85%', color: 'rgba(0,0,0,.87)', fontSize: '.85em', letterSpacing: '.4px', fontFamily: 'OpenSans-Regular', alignItems: 'center', textTransform: 'capitalize' }
     const symbol = { borderLeft: '1px solid #6c757d64', minWidth: ' 2.8125rem', display: 'flex', justifyContent: 'center', alignItems: 'center', color: "rgba(0, 0, 0, .87)", fontSize: '.85em', letterSpacing: '.4px', fontFamily: 'OpenSans-Regular', height: '150%', position: 'relative', left: '1.25rem' }
 
+    const handleClickbtn = () => {
+        handleClick(a)
+    }
 
     return (
         <div>
@@ -30,6 +34,7 @@ const Basiccomp = ({ val, filter, handleChangetick, handleChangeFilter }) => {
                     </Dropdown>
                 </Col>
             </Row>
+            <button onClick={handleClickbtn}>click</button>
         </div>
     )
 }

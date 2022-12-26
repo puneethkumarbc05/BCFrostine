@@ -10,7 +10,10 @@ const Download = () => {
     }
 
     const uploadChange = (e) => {
+        console.log(e.target.files[0]);
         const file = e.target.files[0]
+        const fd = new FormData()
+        fd.append('file', file)
         setImgURL(URL.createObjectURL(file))
         setFileName(file.name)
     }

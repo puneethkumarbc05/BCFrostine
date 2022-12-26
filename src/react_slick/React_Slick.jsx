@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import ReactHtmlTableToExcel from 'react-html-table-to-excel'
 import Slider from 'react-slick'
 import { tableContent, restableData } from './data'
@@ -12,6 +13,23 @@ const React_Slick = ({ data }) => {
         slidesToScroll: 1,
     }
     const header = `Doctorwise Call Summary Report For jan-march 2022 for FS abc`
+
+    useEffect(() => {
+        const a = ''
+        // console.log(a ? a : 'b');
+        console.log(typeof (a))
+        const aa = [{ a: '1' }, { a: '1' }]
+        console.log(aa)
+        // const dup = [...new Set(aa)]
+        const ids = aa.map(o => o.a)
+        console.log(ids)
+        const filtered = aa.filter(({ a }, index) => {
+            console.log(a);
+            return !ids.includes(a, index + 1)
+        })
+        console.log(filtered);
+
+    }, [])
 
     return (
         <div>
@@ -127,7 +145,7 @@ const React_Slick = ({ data }) => {
                 })}
             </table> */}
 
-            
+
             <ReactHtmlTableToExcel
                 id="abc"
                 className="download-table-xls-button"

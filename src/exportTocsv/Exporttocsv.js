@@ -7,6 +7,40 @@ const Exporttocsv = () => {
         // toTable = array of objects(response)
         // str = file name
         exportXlsx(toTable, str)
+        const arar = [
+            {
+                "C_code": "DI0002",
+                "C_name": "UNIQUE VIVA"
+            },
+            {
+                "C_code": "28",
+                "C_name": "B NOVA CLOSED"
+            },
+            {
+                "C_code": "POM1",
+                "C_name": "C POM1 DIV"
+            },
+            {
+                "C_code": "02",
+                "C_name": "k"
+            },
+            {
+                "C_code": "23",
+                "C_name": "UNIQUE IIVA"
+            },
+            {
+                "C_code": "DI0001",
+                "C_name": "UNIQUE JIVA"
+            },
+            {
+                "C_code": "05",
+                "C_name": "UNIQUE SPL CLOSED"
+            },
+            {
+                "C_code": "29",
+                "C_name": "A TEST DIV Irshad"
+            },
+        ]
     }, [])
 
     const exportXlsx = (reportTable, lable) => {

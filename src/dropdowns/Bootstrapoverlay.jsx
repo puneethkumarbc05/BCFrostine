@@ -29,7 +29,7 @@ export const Bootstrapoverlay = () => {
     }
 
     const toupper = (str) => {
-        const arr = str.split(' ').map(a=>{
+        const arr = str.split(' ').map(a => {
             return a.charAt(0).toUpperCase() + a.slice(1)
         }).join(' ')
         console.log(arr);
@@ -41,7 +41,8 @@ export const Bootstrapoverlay = () => {
     const uppercase = () => {
         toupper('Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ut earum ducimus commodi sunt, deleniti et dignissimos animi quidem doloribus nisi possimus. Dolor, in. Officiis quasi sapiente possimus dolore soluta.')
     }
-    
+
+    console.log(new Date().getTime())
 
     return (
         <div>
