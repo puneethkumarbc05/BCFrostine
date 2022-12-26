@@ -95,12 +95,12 @@ const Takebasiccopm = () => {
         setOriginl1(temp)
     }
 
-    const one = () => {
-        console.log(one)
+    const one = (a) => {
+        console.log(a, 'one')
     }
 
-    const two = () => {
-        console.log(two);
+    const two = (a) => {
+        console.log(a, 'two');
     }
 
     return (
