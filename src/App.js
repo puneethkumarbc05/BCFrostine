@@ -34,6 +34,7 @@ import Takebasiccopm from './basiccomponent/Takebasiccopm';
 import Bcflazyload from './bcflazyload/Bcflazyload';
 import ExporttoXls from './ExporttoXls/ExporttoXls';
 import Onclickdropdown from './Onclickdropdown/Onclickdropdown';
+import ResponsivePopUp from './Popup/ResponsivePopUp';
 
 function App() {
   return (
@@ -103,8 +104,10 @@ function App() {
         <Route path='bcflazyload' element={<Bcflazyload />} />
         <Route path='ExporttoXls' element={<ExporttoXls />} />
         <Route path='Onclickdropdown' element={<Onclickdropdown />} />
+        <Route path='ResponsivePopUp' element={<ResponsivePopUp />} />
       </Routes> 
     </BrowserRouter>
+    
   )
 }
 
