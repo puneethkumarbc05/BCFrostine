@@ -29,6 +29,7 @@ const Bcflazyload = () => {
 
     const arra = [1, 2, 3]
 
+
     const arr = [
         { id: 1, msg: 'abc' },
         { id: 2, msg: 'abc' },
@@ -79,12 +80,13 @@ const Bcflazyload = () => {
         let obj = {}
         arr.map(item => { Object.values(obj).filter(r => r.id === item.id).length > 0 ? updateFunc(item) : pushFunc(item) })
 
-        console.log(obj, 'obj')
 
-        const str = "AGGGGGGFDDDDDDDDDDDDDDDDDDDDDDD"
-        console.log(str.replace(/(\w)(\w*)/g, function (g0, g1, g2) { return g1.toUpperCase() + g2.toLowerCase(); }))
     }, [])
 
+    const num = []
+    console.log(num.reduce((a, b) => {
+        return a + b
+    }, 0) / 4)
 
     const getpictures = async () => {
         try {
