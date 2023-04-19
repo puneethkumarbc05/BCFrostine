@@ -35,6 +35,11 @@ import Bcflazyload from './bcflazyload/Bcflazyload';
 import ExporttoXls from './ExporttoXls/ExporttoXls';
 import Onclickdropdown from './Onclickdropdown/Onclickdropdown';
 import ResponsivePopUp from './Popup/ResponsivePopUp';
+import Lazy_loading from './Lazy_Loading/Lazy_loading';
+
+function AunthincateRoute(link, Page) {
+  return <Route render={(page)=> <Page />} />
+}
 
 function App() {
   return (
@@ -70,6 +75,7 @@ function App() {
       <Link to='/React_Slick' ></Link>
       <Link to='/Takebasiccopm' ></Link>
       <Link to='/bcflazyload' ></Link>
+      <Link to='/Lazy_loading' ></Link>
       <Routes>
         <Route path='abbottcontainer' element={<Abbottcontainer />} />
         {/* <Route path='abbott_page_2_container' element={<Abbott_page_2_container />} /> */}
@@ -105,9 +111,11 @@ function App() {
         <Route path='ExporttoXls' element={<ExporttoXls />} />
         <Route path='Onclickdropdown' element={<Onclickdropdown />} />
         <Route path='ResponsivePopUp' element={<ResponsivePopUp />} />
-      </Routes> 
+        <Route path='Lazy_loading' element={<Lazy_loading />} />
+        {/* {AunthincateRoute("/Lazy_loading", Lazy_loading)} */}
+      </Routes>
     </BrowserRouter>
-    
+
   )
 }
 
