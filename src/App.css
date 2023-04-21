@@ -107,15 +107,15 @@ ol {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196f3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -167,13 +167,13 @@ th {
   margin: -25px 0 0 -25px;
   width: 50px;
   height: 50px;
-  
+
   /* & .path {
     stroke: hsl(210, 70, 75);
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   } */
-  
+
 }
 
 @keyframes rotate {
@@ -187,10 +187,12 @@ th {
     stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
+
   100% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;
