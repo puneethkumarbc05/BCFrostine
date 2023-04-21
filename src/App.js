@@ -36,83 +36,58 @@ import ExporttoXls from './ExporttoXls/ExporttoXls';
 import Onclickdropdown from './Onclickdropdown/Onclickdropdown';
 import ResponsivePopUp from './Popup/ResponsivePopUp';
 import Lazy_loading from './Lazy_Loading/Lazy_loading';
+import { Col, Row } from 'react-bootstrap';
+import Side_Bar from './Side_Bar';
+import Logon_Page from './Logon_Page/Logon_Page';
+import React from 'react';
 
 function AunthincateRoute(link, Page) {
-  return <Route render={(page)=> <Page />} />
+  return <>
+    <React.Fragment>
+      {/* <Side_Bar /> */}
+      <Route path={link} element={<Page />} />
+    </React.Fragment>
+  </>
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <Link to='/abbottcontainer' ></Link>
-      {/* <Link to='/abbott_page_2_container' ></Link> */}
-      <Link to='/googlemaps' ></Link>
-      <Link to='/map' ></Link>
-      <Link to='/map2' ></Link>
-      <Link to='/Design' ></Link>
-      <Link to='/Looping' ></Link>
-      <Link to='/Dropdown' ></Link>
-      <Link to='/Bootstrapoverlay' ></Link>
-      <Link to='/Dropdownwithcheckbox' ></Link>
-      <Link to='/Localstorage' ></Link>
-      <Link to='/Calender' ></Link>
-      <Link to='/Card' ></Link>
-      <Link to='/Uplaod' ></Link>
-      <Link to='/Rejex_validator' ></Link>
-      <Link to='/Pagination' ></Link>
-      <Link to='/ReactPagination' ></Link>
-      <Link to='/InputPage/:id' ></Link>
-      <Link to='/TableShow' ></Link>
-      <Link to='/Corousel' ></Link>
-      <Link to='/Download' ></Link>
-      <Link to='/HtmlToImage' ></Link>
-      <Link to='/Zipdecompress' ></Link>
-      <Link to='/Tabbreadcrums' ></Link>
-      <Link to='/BaseUrlToFile' ></Link>
-      <Link to='/StoreFileInSession' ></Link>
-      <Link to='/BaseUrlTobinaryToFile' ></Link>
-      <Link to='/Rcpa' ></Link>
-      <Link to='/React_Slick' ></Link>
-      <Link to='/Takebasiccopm' ></Link>
-      <Link to='/bcflazyload' ></Link>
-      <Link to='/Lazy_loading' ></Link>
       <Routes>
-        <Route path='abbottcontainer' element={<Abbottcontainer />} />
-        {/* <Route path='abbott_page_2_container' element={<Abbott_page_2_container />} /> */}
-        <Route path='googlemaps' element={<Googlemap />} />
-        <Route path='map' element={<Map />} />
-        <Route path='map2' element={<Maapp2 />} />
-        <Route path='Design' element={<Design />} />
-        <Route path='Looping' element={<Looping />} />
-        <Route path='Dropdown' element={<Dropdown />} />
-        <Route path='Bootstrapoverlay' element={<Bootstrapoverlay />} />
-        <Route path='Dropdownwithcheckbox' element={<Dropdownwithcheckbox />} />
-        <Route path='Localstorage' element={<Localstorage />} />
-        <Route path='Calender' element={<Calender />} />
-        <Route path='Card' element={<Card />} />
-        <Route path='Uplaod' element={<Uplaod />} />
-        <Route path='Rejex_validator' element={<Rejex_validator />} />
-        <Route path='Pagination' element={<Pagination />} />
-        <Route path='ReactPagination' element={<ReactPagination />} />
-        <Route path='InputPage/:id' element={<InputPage />} />
-        <Route path='TableShow' element={<TableShow />} />
-        <Route path='Corousel' element={<Corousel />} />
-        <Route path='Download' element={<Download />} />
-        <Route path='HtmlToImage' element={<HtmlToImage />} />
-        <Route path='Zipdecompress' element={<Zipdecompress />} />
-        <Route path='Tabbreadcrums' element={<Tabbreadcrums />} />
-        <Route path='BaseUrlToFile' element={<BaseUrlToFile />} />
-        <Route path='StoreFileInSession' element={<StoreFileInSession />} />
-        <Route path='BaseUrlTobinaryToFile' element={<BaseUrlTobinaryToFile />} />
-        <Route path='Rcpa' element={<Rcpa />} />
-        <Route path='React_Slick' element={<React_Slick />} />
-        <Route path='Takebasiccopm' element={<Takebasiccopm />} />
-        <Route path='bcflazyload' element={<Bcflazyload />} />
-        <Route path='ExporttoXls' element={<ExporttoXls />} />
-        <Route path='Onclickdropdown' element={<Onclickdropdown />} />
-        <Route path='ResponsivePopUp' element={<ResponsivePopUp />} />
-        <Route path='Lazy_loading' element={<Lazy_loading />} />
-        {/* {AunthincateRoute("/Lazy_loading", Lazy_loading)} */}
+        <Route path="/Logon_Page" exact element={<Logon_Page />} />
+        {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
+        {AunthincateRoute("/googlemaps", Googlemap)}
+        {AunthincateRoute("/map", Map)}
+        {AunthincateRoute("/map2", Maapp2)}
+        {AunthincateRoute("/Design", Design)}
+        {AunthincateRoute("/Looping", Looping)}
+        {AunthincateRoute("/Dropdown", Dropdown)}
+        {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
+        {AunthincateRoute("/Dropdownwithcheckbox", Dropdownwithcheckbox)}
+        {AunthincateRoute("/Localstorage", Localstorage)}
+        {AunthincateRoute("/Calender", Calender)}
+        {AunthincateRoute("/Uplaod", Uplaod)}
+        {AunthincateRoute("/Rejex_validator", Rejex_validator)}
+        {AunthincateRoute("/Pagination", Pagination)}
+        {AunthincateRoute("/ReactPagination", ReactPagination)}
+        {AunthincateRoute("/InputPage/:id", InputPage)}
+        {AunthincateRoute("/TableShow", TableShow)}
+        {AunthincateRoute("/Corousel", Corousel)}
+        {AunthincateRoute("/Download", Download)}
+        {AunthincateRoute("/HtmlToImage", HtmlToImage)}
+        {AunthincateRoute("/Zipdecompress", Zipdecompress)}
+        {AunthincateRoute("/Tabbreadcrums", Tabbreadcrums)}
+        {AunthincateRoute("/BaseUrlToFile", BaseUrlToFile)}
+        {AunthincateRoute("/StoreFileInSession", StoreFileInSession)}
+        {AunthincateRoute("/BaseUrlTobinaryToFile", BaseUrlTobinaryToFile)}
+        {AunthincateRoute("/Rcpa", Rcpa)}
+        {AunthincateRoute("/React_Slick", React_Slick)}
+        {AunthincateRoute("/Takebasiccopm", Takebasiccopm)}
+        {AunthincateRoute("/bcflazyload", Bcflazyload)}
+        {AunthincateRoute("/ExporttoXls", ExporttoXls)}
+        {AunthincateRoute("/Onclickdropdown", ExporttoXls)}\
+        {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
+        {AunthincateRoute("/Lazy_loading", Lazy_loading)}
       </Routes>
     </BrowserRouter>
 
