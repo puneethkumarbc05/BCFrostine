@@ -40,6 +40,7 @@ import Side_Bar from './Side_Bar';
 import Logon_Page from './Logon_Page/Logon_Page';
 import React from 'react';
 import My_calender from './calender/My_calender';
+import Header from './landingPages/Header';
 
 function AunthincateRoute(link, Page) {
   return <>
@@ -84,11 +85,12 @@ function App() {
         {AunthincateRoute("/Takebasiccopm", Takebasiccopm)}
         {AunthincateRoute("/bcflazyload", Bcflazyload)}
         {AunthincateRoute("/ExporttoXls", ExporttoXls)}
-        {AunthincateRoute("/Onclickdropdown", ExporttoXls)}\
+        {AunthincateRoute("/Onclickdropdown", Onclickdropdown)}
         {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
         {AunthincateRoute("/Lazy_loading", Lazy_loading)}
         {/* {AunthincateRoute("/Calender", New_Calender)} */}
         {AunthincateRoute("/My_calender", My_calender)}
+        {AunthincateRoute("/Header", Header)}
       </Routes>
     </BrowserRouter>
 
