@@ -12,7 +12,6 @@ import { Dropdown } from './dropdowns/Dropdown';
 import { Bootstrapoverlay } from './dropdowns/Bootstrapoverlay';
 import { Dropdownwithcheckbox } from './dropdownwithcheckbox/Dropdownwithcheckbox';
 import { Localstorage } from './local storage/Localstorage';
-import { Calender } from './calander/Calender';
 import { Card } from './components/Card';
 import Uplaod from './uplaod/Uplaod';
 import Rejex_validator from './rejex_validator/Rejex_validator';
@@ -40,6 +39,7 @@ import { Col, Row } from 'react-bootstrap';
 import Side_Bar from './Side_Bar';
 import Logon_Page from './Logon_Page/Logon_Page';
 import React from 'react';
+import My_calender from './calender/My_calender';
 
 function AunthincateRoute(link, Page) {
   return <>
@@ -54,7 +54,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Logon_Page" exact element={<Logon_Page />} />
+        <Route path="/Login_Page" exact element={<Logon_Page />} />
         {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
         {AunthincateRoute("/googlemaps", Googlemap)}
         {AunthincateRoute("/map", Map)}
@@ -65,7 +65,6 @@ function App() {
         {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
         {AunthincateRoute("/Dropdownwithcheckbox", Dropdownwithcheckbox)}
         {AunthincateRoute("/Localstorage", Localstorage)}
-        {AunthincateRoute("/Calender", Calender)}
         {AunthincateRoute("/Uplaod", Uplaod)}
         {AunthincateRoute("/Rejex_validator", Rejex_validator)}
         {AunthincateRoute("/Pagination", Pagination)}
@@ -88,6 +87,8 @@ function App() {
         {AunthincateRoute("/Onclickdropdown", ExporttoXls)}\
         {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
         {AunthincateRoute("/Lazy_loading", Lazy_loading)}
+        {/* {AunthincateRoute("/Calender", New_Calender)} */}
+        {AunthincateRoute("/My_calender", My_calender)}
       </Routes>
     </BrowserRouter>
 
