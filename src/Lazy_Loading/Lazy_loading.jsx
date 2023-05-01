@@ -89,6 +89,7 @@ const Lazy_loading = () => {
                     })}
                 </tbody>
             </table>
+            <iframe src="https://sfa360.in" />
         </div>
     )
 }
