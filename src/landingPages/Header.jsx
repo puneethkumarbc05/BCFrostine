@@ -14,6 +14,11 @@ const Search = () => {
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
     </svg>
 }
+const Search1 = () => {
+    return <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+    </svg>
+}
 
 const Bell = () => {
     return <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#fff" class="bi bi-bell" viewBox="0 0 16 16">
@@ -26,6 +31,8 @@ const Header = () => {
     const [mobHeader2Drop, setMobHeaderDrop] = useState(false)
     const ProfileRef = useRef()
     const [profileDrop, setProfileDrop] = useState(false)
+    const mobileDropRef = useRef()
+    const [searchActive, setSearchActive] = useState(false)
 
 
     useEffect(() => {
@@ -41,7 +48,23 @@ const Header = () => {
         return () => {
             document.removeEventListener('mousedown', FunC)
         }
+
     })
+
+    useEffect(() => {
+        const FunC2 = (e) => {
+            if (!mobileDropRef.current.contains(e.target)) {
+                setMobHeaderDrop(false)
+            }
+        }
+
+        document.addEventListener("mousedown", FunC2)
+
+        return () => {
+            document.removeEventListener('mousedown', FunC2)
+        }
+    })
+
     return (
         <>
             <div className="destop_header_container">
@@ -54,13 +77,13 @@ const Header = () => {
                         <Search />
                         <input type='text' placeholder='Enter Menu' />
                     </div>
-                    <div className="admin_message">
+                    <div className="admin_message" title='Admin Message'>
                         <AdminMessage />
                     </div>
-                    <div className="notification">
+                    <div className="notification" title='Notifications'>
                         <Bell />
                     </div>
-                    <div ref={ProfileRef} className='profile_Cont'>
+                    <div ref={ProfileRef} className='profile_Cont' title='My Profile'>
                         <img
                             src="https://cdn.pixabay.com/photo/2022/05/17/21/41/naruto-7203817__340.jpg"
                             className="porfile_Page"
@@ -82,21 +105,28 @@ const Header = () => {
                 <div className='corousal'>
                     agjhgdhgajhsgfjkhasgjh
                 </div>
-                <div >
+                <div ref={mobileDropRef}>
                     <div className="mob_btn" onClick={() => { setMobHeaderDrop(!mobHeader2Drop) }}>...</div>
                     <div className={mobHeader2Drop ? "mobile_header_2" : "mobile_header_2_inactive"}>
                         <div className="items_contianer">
-                            <div className="search_menu">
-                                <Search />
-                                <input type='text' placeholder='Enter Menu' />
+                            <div className="search-box" style={{ width: searchActive ? "200px" : "32px" }}>
+                                <input type="text" placeholder='Enter' />
+                                {!searchActive ? <div className='searc-btn' onClick={() => { setSearchActive(true) }}>
+                                    <Search1 />
+                                </div>
+                                    :
+                                    <div className='search-cancel' onClick={() => { setSearchActive(false) }}>
+                                        X
+                                    </div>
+                                }
                             </div>
-                            <div className="admin_message">
+                            <div className="admin_message" title='Admin Message'>
                                 <AdminMessage />
                             </div>
-                            <div className="notification">
+                            <div className="notification" title='Notifications'>
                                 <Bell />
                             </div>
-                            <div ref={ProfileRef} className='profile_Cont'>
+                            <div ref={ProfileRef} className='profile_Cont' title='My Profile'>
                                 <img
                                     src="https://cdn.pixabay.com/photo/2022/05/17/21/41/naruto-7203817__340.jpg"
                                     className="porfile_Page"
