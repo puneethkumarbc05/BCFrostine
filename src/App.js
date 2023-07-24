@@ -41,6 +41,8 @@ import Logon_Page from './Logon_Page/Logon_Page';
 import React from 'react';
 import My_calender from './calender/My_calender';
 import Header from './landingPages/Header';
+import Async_Await_for_Looping from './Async_Await_for_Looping/Async_Await_for_Looping';
+import Menu_bar from './Menu_bar/component/Menu_bar';
 
 function AunthincateRoute(link, Page) {
   return <>
@@ -91,6 +93,8 @@ function App() {
         {/* {AunthincateRoute("/Calender", New_Calender)} */}
         {AunthincateRoute("/My_calender", My_calender)}
         {AunthincateRoute("/Header", Header)}
+        {AunthincateRoute("/Async_Await_for_Looping", Async_Await_for_Looping)}
+        {AunthincateRoute("/Menu_bar", Menu_bar)}
       </Routes>
     </BrowserRouter>
 

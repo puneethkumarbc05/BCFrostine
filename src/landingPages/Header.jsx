@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./landingPages.scss"
+import ToggleBtn from '../basiccomponent/ToggleBtn'
+import Animation from '../basiccomponent/Animation'
 
 const AdminMessage = ({ height, width }) => {
     return <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#fff" class="bi bi-envelope-fill" viewBox="0 0 16 16">
@@ -33,6 +35,24 @@ const Header = () => {
     const [profileDrop, setProfileDrop] = useState(false)
     const mobileDropRef = useRef()
     const [searchActive, setSearchActive] = useState(false)
+
+    const [toogle, setToogle] = useState(true)
+
+    const [det, setDet] = useState({
+        a: 'AAAAAAAAAAAAA',
+        b: {
+            c: {
+                d: '',
+                f: 'FFFFFFFFFFFFFFF'
+            },
+            e: 'EEEEEEEEEEEE'
+        }
+    })
+
+    useState(() => {
+        console.log(det, 'state Change')
+    }, [det])
+
 
 
     useEffect(() => {
@@ -141,6 +161,18 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <ToggleBtn toogle={toogle} setToogle={setToogle} />
+                <Animation />
+                {det["b"]["c"]["d"]}
+                <button onClick={() => {
+                    const copy = JSON.parse(JSON.stringify(det))
+                    copy["b"]["c"]["d"] = 'DDDDDDDDDDDD'
+                    setDet(copy)
+                    console.log(copy, 'deepcopy change')
+                }}>click</button>
             </div>
         </>
     )

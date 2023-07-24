@@ -1,0 +1,48 @@
+.menu-bar {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+    background: #000;
+}
+
+.menu-bar-wrapper {
+    display: flex;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: .3rem 2rem;
+    background: #fff;
+    position: relative;
+}
+
+.menu-list-items {
+    list-style: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    /* border: 1px solid black; */
+    padding: 5px;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    border-radius: 50%;
+    transition: 1s all ease;
+    transform: translateY(0);
+}
+
+.indicator {
+    position: absolute;
+    top: -13px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 100px 100px 0 0;
+    transition: 1s all ease;
+}
+
+.menu-active {
+    transform: translateY(-10px);
+    background-color: green;
+}
