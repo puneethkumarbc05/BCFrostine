@@ -1,0 +1,41 @@
+.animation-container {
+    width: 70px;
+    height: 30px;
+    background-color: aquamarine;
+    border-radius: 40px;
+    transition: all 2s;
+    font-size: 1rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+    /* position: relative; */
+    cursor: pointer;
+}
+
+.animation-container:hover>div {
+    animation: move 1s;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(130%, 0) rotate(360deg);
+    }
+}
+
+.animation-container div {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #FFF;
+    /* position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%); */
+}
