@@ -57,7 +57,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Login_Page" exact element={<Logon_Page />} />
+        <Route path="/" exact element={<Logon_Page />} />
         {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
         {AunthincateRoute("/googlemaps", Googlemap)}
         {AunthincateRoute("/map", Map)}
