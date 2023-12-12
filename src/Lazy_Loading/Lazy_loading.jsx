@@ -48,7 +48,6 @@ const Lazy_loading = () => {
             tempOption.splice(filteredData.length - COUNT, COUNT)
             let startInd = page_no * COUNT - 200
             let endIndex = page_no * COUNT - 100
-            console.log(startInd, endIndex)
             setfilteredData([...ORIGINAL_DATA.slice(startInd, endIndex), ...tempOption])
             set_Page_No(page_no - 1)
             const nextNumber = index_management - COUNT
@@ -65,6 +64,7 @@ const Lazy_loading = () => {
             addPreviousSetOfDatas()
         }
     }
+
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
             <table>
@@ -89,7 +89,6 @@ const Lazy_loading = () => {
                     })}
                 </tbody>
             </table>
-            <iframe src="https://sfa360.in" />
         </div>
     )
 }
