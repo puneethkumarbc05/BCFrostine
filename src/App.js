@@ -12,7 +12,6 @@ import { Dropdown } from './dropdowns/Dropdown';
 import { Bootstrapoverlay } from './dropdowns/Bootstrapoverlay';
 import { Dropdownwithcheckbox } from './dropdownwithcheckbox/Dropdownwithcheckbox';
 import { Localstorage } from './local storage/Localstorage';
-import { Card } from './components/Card';
 import Uplaod from './uplaod/Uplaod';
 import Rejex_validator from './rejex_validator/Rejex_validator';
 import { Pagination } from './pagination/Pagination';
@@ -35,14 +34,13 @@ import ExporttoXls from './ExporttoXls/ExporttoXls';
 import Onclickdropdown from './Onclickdropdown/Onclickdropdown';
 import ResponsivePopUp from './Popup/ResponsivePopUp';
 import Lazy_loading from './Lazy_Loading/Lazy_loading';
-import { Col, Row } from 'react-bootstrap';
-import Side_Bar from './Side_Bar';
 import Logon_Page from './Logon_Page/Logon_Page';
-import React from 'react';
+import React, { Suspense } from 'react';
 import My_calender from './calender/My_calender';
 import Header from './landingPages/Header';
 import Async_Await_for_Looping from './Async_Await_for_Looping/Async_Await_for_Looping';
 import Menu_bar from './Menu_bar/component/Menu_bar';
+const Profile_Card = React.lazy(() => import('./Profile_Card/component/Profile_Card'))
 
 function AunthincateRoute(link, Page) {
   return <>
@@ -55,48 +53,51 @@ function AunthincateRoute(link, Page) {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<Logon_Page />} />
-        {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
-        {AunthincateRoute("/googlemaps", Googlemap)}
-        {AunthincateRoute("/map", Map)}
-        {AunthincateRoute("/map2", Maapp2)}
-        {AunthincateRoute("/Design", Design)}
-        {AunthincateRoute("/Looping", Looping)}
-        {AunthincateRoute("/Dropdown", Dropdown)}
-        {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
-        {AunthincateRoute("/Dropdownwithcheckbox", Dropdownwithcheckbox)}
-        {AunthincateRoute("/Localstorage", Localstorage)}
-        {AunthincateRoute("/Uplaod", Uplaod)}
-        {AunthincateRoute("/Rejex_validator", Rejex_validator)}
-        {AunthincateRoute("/Pagination", Pagination)}
-        {AunthincateRoute("/ReactPagination", ReactPagination)}
-        {AunthincateRoute("/InputPage/:id", InputPage)}
-        {AunthincateRoute("/TableShow", TableShow)}
-        {AunthincateRoute("/Corousel", Corousel)}
-        {AunthincateRoute("/Download", Download)}
-        {AunthincateRoute("/HtmlToImage", HtmlToImage)}
-        {AunthincateRoute("/Zipdecompress", Zipdecompress)}
-        {AunthincateRoute("/Tabbreadcrums", Tabbreadcrums)}
-        {AunthincateRoute("/BaseUrlToFile", BaseUrlToFile)}
-        {AunthincateRoute("/StoreFileInSession", StoreFileInSession)}
-        {AunthincateRoute("/BaseUrlTobinaryToFile", BaseUrlTobinaryToFile)}
-        {AunthincateRoute("/Rcpa", Rcpa)}
-        {AunthincateRoute("/React_Slick", React_Slick)}
-        {AunthincateRoute("/Takebasiccopm", Takebasiccopm)}
-        {AunthincateRoute("/bcflazyload", Bcflazyload)}
-        {AunthincateRoute("/ExporttoXls", ExporttoXls)}
-        {AunthincateRoute("/Onclickdropdown", Onclickdropdown)}
-        {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
-        {AunthincateRoute("/Lazy_loading", Lazy_loading)}
-        {/* {AunthincateRoute("/Calender", New_Calender)} */}
-        {AunthincateRoute("/My_calender", My_calender)}
-        {AunthincateRoute("/Header", Header)}
-        {AunthincateRoute("/Async_Await_for_Looping", Async_Await_for_Looping)}
-        {AunthincateRoute("/Menu_bar", Menu_bar)}
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Logon_Page />} />
+          {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
+          {AunthincateRoute("/googlemaps", Googlemap)}
+          {AunthincateRoute("/map", Map)}
+          {AunthincateRoute("/map2", Maapp2)}
+          {AunthincateRoute("/Design", Design)}
+          {AunthincateRoute("/Looping", Looping)}
+          {AunthincateRoute("/Dropdown", Dropdown)}
+          {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
+          {AunthincateRoute("/Dropdownwithcheckbox", Dropdownwithcheckbox)}
+          {AunthincateRoute("/Localstorage", Localstorage)}
+          {AunthincateRoute("/Uplaod", Uplaod)}
+          {AunthincateRoute("/Rejex_validator", Rejex_validator)}
+          {AunthincateRoute("/Pagination", Pagination)}
+          {AunthincateRoute("/ReactPagination", ReactPagination)}
+          {AunthincateRoute("/InputPage/:id", InputPage)}
+          {AunthincateRoute("/TableShow", TableShow)}
+          {AunthincateRoute("/Corousel", Corousel)}
+          {AunthincateRoute("/Download", Download)}
+          {AunthincateRoute("/HtmlToImage", HtmlToImage)}
+          {AunthincateRoute("/Zipdecompress", Zipdecompress)}
+          {AunthincateRoute("/Tabbreadcrums", Tabbreadcrums)}
+          {AunthincateRoute("/BaseUrlToFile", BaseUrlToFile)}
+          {AunthincateRoute("/StoreFileInSession", StoreFileInSession)}
+          {AunthincateRoute("/BaseUrlTobinaryToFile", BaseUrlTobinaryToFile)}
+          {AunthincateRoute("/Rcpa", Rcpa)}
+          {AunthincateRoute("/React_Slick", React_Slick)}
+          {AunthincateRoute("/Takebasiccopm", Takebasiccopm)}
+          {AunthincateRoute("/bcflazyload", Bcflazyload)}
+          {AunthincateRoute("/ExporttoXls", ExporttoXls)}
+          {AunthincateRoute("/Onclickdropdown", Onclickdropdown)}
+          {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
+          {AunthincateRoute("/Lazy_loading", Lazy_loading)}
+          {/* {AunthincateRoute("/Calender", New_Calender)} */}
+          {AunthincateRoute("/My_calender", My_calender)}
+          {AunthincateRoute("/Header", Header)}
+          {AunthincateRoute("/Async_Await_for_Looping", Async_Await_for_Looping)}
+          {AunthincateRoute("/Menu_bar", Menu_bar)}
+          {AunthincateRoute("/Profile_Card", Profile_Card)}
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
 
   )
 }
