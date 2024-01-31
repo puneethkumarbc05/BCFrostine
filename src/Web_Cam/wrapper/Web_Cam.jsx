@@ -2,74 +2,65 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import "../../App.css"
 
 const Web_Cam = () => {
-    const webCamRef = useRef()
-    // const cameraRef = useRef()
-    // const imgRef = useRef()
-    const [capturedImg, setCapturedImg] = useState(null)
-    const [videoSrc, setImgSrc] = useState(null)
+    const [imgSrc, setImgSrc] = useState('')
 
-    function capture() {
-        const imgSrc = webCamRef.current.getScreenshot()
-        setCapturedImg(imgSrc)
-        console.log(imgSrc, 'bcf')
+    function _start_Video() {
+        const constraints = {
+            video: {
+                facingMode: "environment"
+            },
+            // video: true
+        };
+        setImgSrc('')
+        let video = document.querySelector("#Capture_image_module_video");
+
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+            video.srcObject = stream;
+        }).catch(err => alert(err))
     }
 
-    useEffect(() => {
+    async function _handle_Click_Capture() {
+        let video = document.querySelector("#Capture_image_module_video");
+        let canvas = document.querySelector("#canvas")
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        let image_data_url = canvas.toDataURL('image/jpeg').split(',')[1];
+        setImgSrc(image_data_url)
+        _stop_video()
+    }
 
-        let camera_button = document.querySelector("#start-camera");
-        let camera_button_stop = document.querySelector("#stop-camera");
-        let video = document.querySelector("#video");
-        let click_button = document.querySelector("#click-photo");
-        let canvas = document.querySelector("#canvas");
+    async function _stop_video() {
+        let video = document.querySelector("#Capture_image_module_video");
+        const stream = await video.srcObject;
+        const tracks = await stream.getTracks();
 
-        camera_button.addEventListener('click', async function () {
-            let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-            video.srcObject = stream;
+        tracks.forEach((track) => {
+            track.stop();
         });
 
-        camera_button_stop.addEventListener('click', async function () {
-            const stream = await video.srcObject;
-            const tracks = await stream.getTracks();
+        video.srcObject = null;
+    }
 
-            tracks.forEach((track) => {
-                track.stop();
-            });
+    function _setImage() {
+        const decodedData = atob(imgSrc);
+        const arrayBuffer = new Uint8Array(decodedData.length);
+        for (let i = 0; i < decodedData.length; i++) {
+            arrayBuffer[i] = decodedData.charCodeAt(i);
+        }
 
-            video.srcObject = null;
-        });
-
-        click_button.addEventListener('click', function () {
-            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-            let image_data_url = canvas.toDataURL('image/jpeg');
-
-            // data url of the image
-            console.log(image_data_url);
-        });
-    }, [])
-
-
-    async function stop() {
-        let video = document.querySelector("#video");
-
+        const blob = new Blob([arrayBuffer], { type: "text/plain" });
+        const file = new File([blob], "Img.jpeg" || 'file', { type: "text/plain" });
     }
 
     return (
         <div style={{ width: '100vw', height: '100vh', display: 'grid', placeItems: 'center' }}>
-            {capturedImg ?
-                <img src={capturedImg} width={600} height={600} />
-                :
-                // <Webcam height={600} width={600} ref={webCamRef} />
-                // <video id="video" width="320" height="240" autoPlay></video>
-                <>
-                    <button id="start-camera">Start Camera</button>
-                    <button id="stop-camera">Stop Camera</button>
-                    <video id="video" width="320" height="240" autoPlay></video>
-                    {/* {videoSrc && <video src={videoSrc} id="video" width="320" height="240" autoPlay ></video>} */}
-                    <button id="click-photo">Click Photo</button>
-                    <canvas id="canvas" width="320" height="240"></canvas>
-                </>
-            }
-            <button onClick={capture}>{"Capture"}</button>
+            <>
+                <button onClick={() => _start_Video()}>Start Camera</button>
+                <button onClick={() => _stop_video()}>Stop Camera</button>
+                <button onClick={() => _handle_Click_Capture()}>Click Photo</button>
+                <button onClick={() => _setImage()}>Create Image File</button>
+                <video id="Capture_image_module_video" width="320" height="240" autoPlay />
+                <canvas id="canvas" width="320" height="240"></canvas>
+            </>
         </div>
     )
 }
