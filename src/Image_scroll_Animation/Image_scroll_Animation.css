@@ -1,0 +1,25 @@
+.image_conatiner {
+    width: 100vw;
+    height: 600px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.images-items {
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 2px 4px #0000;
+    object-fit: cover;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.active-img {
+    width: 500px;
+}
+
+.in-active-img {
+    width: 3rem;
+}

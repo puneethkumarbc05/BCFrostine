@@ -92,7 +92,7 @@
     text-shadow: -3px -3px 7px #fff, 3px 3px 7px #fff;
 }
 
-@-webkit-keyframes textglow {
+@keyframes textglow {
     from {
         text-shadow: -3px -3px 7px #fff, 3px 3px 7px #fff;
     }

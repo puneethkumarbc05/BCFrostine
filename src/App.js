@@ -1,7 +1,7 @@
 import './App.css';
 
 import { Abbottcontainer } from './abbott/Abbottcontainer';
-// import { Abbott_page_2_container } from './abbott_page_2/Abbott_page_2_container';
+import { Abbott_page_2_container } from './abbott_page_2/Abbott_page_2_container';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Googlemap } from './googleMap/Googlemap';
 import { Map } from './googleMap/Map';
@@ -36,20 +36,31 @@ import ResponsivePopUp from './Popup/ResponsivePopUp';
 import Lazy_loading from './Lazy_Loading/Lazy_loading';
 import Logon_Page from './Logon_Page/Logon_Page';
 import React, { Suspense } from 'react';
+import { _menu_list } from './_menu_List';
 import My_calender from './calender/My_calender';
 import Header from './landingPages/Header';
 import Async_Await_for_Looping from './Async_Await_for_Looping/Async_Await_for_Looping';
 import Menu_bar from './Menu_bar/component/Menu_bar';
 const Profile_Card = React.lazy(() => import('./Profile_Card/component/Profile_Card'))
+const Image_scroll_Animation = React.lazy(() => import('./Image_scroll_Animation/container/Image_scroll_Animation'))
+const Graphs = React.lazy(() => import('./Ag_Graphs/Graphs'))
+const Web_Cam = React.lazy(() => import('./Web_Cam/wrapper/Web_Cam'))
 
 function AunthincateRoute(link, Page) {
   return <>
     <React.Fragment>
-      {/* <Side_Bar /> */}
       <Route path={link} element={<Page />} />
     </React.Fragment>
   </>
 }
+
+// function _routes() {
+//   _menu_list.map(item => {
+//     return AunthincateRoute(item['URL'], React.lazy(() => import(item['path'])))
+//   })
+// }
+
+// console.log(_routes())
 
 function App() {
   return (
@@ -57,6 +68,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Logon_Page />} />
+          {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
           {AunthincateRoute("/abbottcontainer", Abbottcontainer)}
           {AunthincateRoute("/googlemaps", Googlemap)}
           {AunthincateRoute("/map", Map)}
@@ -64,7 +76,6 @@ function App() {
           {AunthincateRoute("/Design", Design)}
           {AunthincateRoute("/Looping", Looping)}
           {AunthincateRoute("/Dropdown", Dropdown)}
-          {AunthincateRoute("/Bootstrapoverlay", Bootstrapoverlay)}
           {AunthincateRoute("/Dropdownwithcheckbox", Dropdownwithcheckbox)}
           {AunthincateRoute("/Localstorage", Localstorage)}
           {AunthincateRoute("/Uplaod", Uplaod)}
@@ -89,12 +100,15 @@ function App() {
           {AunthincateRoute("/Onclickdropdown", Onclickdropdown)}
           {AunthincateRoute("/ResponsivePopUp", ResponsivePopUp)}
           {AunthincateRoute("/Lazy_loading", Lazy_loading)}
-          {/* {AunthincateRoute("/Calender", New_Calender)} */}
           {AunthincateRoute("/My_calender", My_calender)}
           {AunthincateRoute("/Header", Header)}
           {AunthincateRoute("/Async_Await_for_Looping", Async_Await_for_Looping)}
           {AunthincateRoute("/Menu_bar", Menu_bar)}
           {AunthincateRoute("/Profile_Card", Profile_Card)}
+          {AunthincateRoute("/Image_scroll_Animation", Image_scroll_Animation)}
+          {AunthincateRoute("/Graphs", Graphs)}
+          {AunthincateRoute("/Web_Cam", React.lazy(() => import('./Web_Cam/wrapper/Web_Cam')))}
+          {AunthincateRoute("/TicTacToe", React.lazy(() => import('./games/TicTacToe/component/TicTacToe')))}
         </Routes>
       </BrowserRouter>
     </Suspense>
