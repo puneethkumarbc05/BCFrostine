@@ -60,7 +60,6 @@
 
 .profile-body div {
     font-size: 1.5rem;
-    animation: textglow infinite .5s ease;
 }
 
 .profile-details-wrapper:hover .profile-img {

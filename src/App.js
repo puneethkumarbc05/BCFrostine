@@ -2,7 +2,7 @@ import './App.css';
 
 import { Abbottcontainer } from './abbott/Abbottcontainer';
 import { Abbott_page_2_container } from './abbott_page_2/Abbott_page_2_container';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes, useRoutes } from 'react-router-dom';
 import { Googlemap } from './googleMap/Googlemap';
 import { Map } from './googleMap/Map';
 import { Maapp2 } from './googleMap/Maapp2';
@@ -41,10 +41,6 @@ import My_calender from './calender/My_calender';
 import Header from './landingPages/Header';
 import Async_Await_for_Looping from './Async_Await_for_Looping/Async_Await_for_Looping';
 import Menu_bar from './Menu_bar/component/Menu_bar';
-const Profile_Card = React.lazy(() => import('./Profile_Card/component/Profile_Card'))
-const Image_scroll_Animation = React.lazy(() => import('./Image_scroll_Animation/container/Image_scroll_Animation'))
-const Graphs = React.lazy(() => import('./Ag_Graphs/Graphs'))
-const Web_Cam = React.lazy(() => import('./Web_Cam/wrapper/Web_Cam'))
 
 function AunthincateRoute(link, Page) {
   return <>
@@ -53,14 +49,6 @@ function AunthincateRoute(link, Page) {
     </React.Fragment>
   </>
 }
-
-// function _routes() {
-//   _menu_list.map(item => {
-//     return AunthincateRoute(item['URL'], React.lazy(() => import(item['path'])))
-//   })
-// }
-
-// console.log(_routes())
 
 function App() {
   return (
@@ -104,9 +92,9 @@ function App() {
           {AunthincateRoute("/Header", Header)}
           {AunthincateRoute("/Async_Await_for_Looping", Async_Await_for_Looping)}
           {AunthincateRoute("/Menu_bar", Menu_bar)}
-          {AunthincateRoute("/Profile_Card", Profile_Card)}
-          {AunthincateRoute("/Image_scroll_Animation", Image_scroll_Animation)}
-          {AunthincateRoute("/Graphs", Graphs)}
+          {AunthincateRoute("/Profile_Card", React.lazy(() => import('./Profile_Card/component/Profile_Card')))}
+          {AunthincateRoute("/Image_scroll_Animation", React.lazy(() => import('./Image_scroll_Animation/container/Image_scroll_Animation')))}
+          {AunthincateRoute("/Graphs", React.lazy(() => import('./Ag_Graphs/Graphs')))}
           {AunthincateRoute("/Web_Cam", React.lazy(() => import('./Web_Cam/wrapper/Web_Cam')))}
           {AunthincateRoute("/TicTacToe", React.lazy(() => import('./games/TicTacToe/component/TicTacToe')))}
         </Routes>
