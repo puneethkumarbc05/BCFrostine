@@ -36,3 +36,16 @@
 }
 
 .TicTacToe_bord_container_card:active {}
+
+.img_conti {
+    background: url('../../../../public/images/download.jfif');
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text_with_img {
+    font-size: 10rem;
+    font-weight: 900;
+}

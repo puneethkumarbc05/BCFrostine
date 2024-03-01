@@ -1,0 +1,54 @@
+.video_background_wrapp {
+    width: 100lvw;
+    height: 100lvh;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.video_background_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));
+}
+
+.login_form_wrapp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: calc(100% - 100px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px 2px rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.upload_input_label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 3rem;
+    width: 7rem;
+    box-shadow: inset 0px 0px 10px 1px rgba(216, 8, 8, 1);
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    font: normal 500 14px OpenSans-Bold;
+    backdrop-filter: blur(4px);
+    color: rgba(216, 8, 8, 1);
+    cursor: pointer;
+}
+
+.upload_input {
+    display: none;
+}
