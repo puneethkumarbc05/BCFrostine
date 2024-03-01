@@ -97,6 +97,8 @@ function App() {
           {AunthincateRoute("/Graphs", React.lazy(() => import('./Ag_Graphs/Graphs')))}
           {AunthincateRoute("/Web_Cam", React.lazy(() => import('./Web_Cam/wrapper/Web_Cam')))}
           {AunthincateRoute("/TicTacToe", React.lazy(() => import('./games/TicTacToe/component/TicTacToe')))}
+          {AunthincateRoute("/Video_Background", React.lazy(() => import('./Video_Background/container/Video_Background')))}
+          {AunthincateRoute("/Image_Reader", React.lazy(() => import('./Image_Reader/container/Image_Reader')))}
         </Routes>
       </BrowserRouter>
     </Suspense>

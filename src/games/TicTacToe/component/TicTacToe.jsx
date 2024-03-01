@@ -72,6 +72,9 @@ const TicTacToe = () => {
                 <button className="TicTacToe_bord_container_card" onClick={() => handleClickCard('9')} id="9"></button>
             </div>
             <button onClick={handleClickRestart}>Restart</button>
+            <div className="img_conti">
+              <div className="text_with_img">ANCG</div>
+            </div>
         </div>
     )
 }
