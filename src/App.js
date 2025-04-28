@@ -44,9 +44,9 @@ import Menu_bar from './Menu_bar/component/Menu_bar';
 
 function AunthincateRoute(link, Page) {
   return <>
-    <React.Fragment>
+    <>
       <Route path={link} element={<Page />} />
-    </React.Fragment>
+    </>
   </>
 }
 
@@ -99,6 +99,15 @@ function App() {
           {AunthincateRoute("/TicTacToe", React.lazy(() => import('./games/TicTacToe/component/TicTacToe')))}
           {AunthincateRoute("/Video_Background", React.lazy(() => import('./Video_Background/container/Video_Background')))}
           {AunthincateRoute("/Image_Reader", React.lazy(() => import('./Image_Reader/container/Image_Reader')))}
+          {AunthincateRoute("/InfiniteScroll", React.lazy(() => import('./InfiniteScroll/InfiniteScroll')))}
+          {AunthincateRoute("/Time_Picker", React.lazy(() => import('./Time_Picker/Time_Picker')))}
+          {AunthincateRoute("/DropdownWithUpDownFunction", React.lazy(() => import('./DropdownWithUpDownFunction/DropdownWithUpDownFunction')))}
+          {AunthincateRoute("/React_virtualized", React.lazy(() => import('./react-virtualized/React_virtualized')))}
+          {AunthincateRoute("/MyCalanderWrapp", React.lazy(() => import('./DatePicker/MyCalanderWrapp')))}
+          {AunthincateRoute("/Background_Smooth_Transition", React.lazy(() => import('./Background_Smooth_Transition/container/Background_Smooth_Transition')))}
+          {AunthincateRoute("/Family_tree", React.lazy(() => import('./Family_tree/container/Family_tree')))}
+          {AunthincateRoute("/DragNdDrop", React.lazy(() => import('./DragNdDrop/DragNdDrop')))}
+          {AunthincateRoute("/Clock", React.lazy(() => import('./Clock/Clock')))}
         </Routes>
       </BrowserRouter>
     </Suspense>

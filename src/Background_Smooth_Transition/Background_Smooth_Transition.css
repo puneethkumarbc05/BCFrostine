@@ -1,0 +1,55 @@
+.Background_Smooth_Transition {
+    --imageUrl: url('');
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: all ease .2s;
+    background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), var(--imageUrl);
+}
+
+.Background_Smooth_Circle_conti {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 350px;
+    border-radius: 350px 350px 0 0;
+    overflow: hidden;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 1);
+    transition: all .3s ease;
+}
+
+.Background_Smooth_Circle {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.Background_Smooth_Transition_arrow {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 1.0);
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    border: none;
+    font: normal bolder 2rem OpenSan-Bold;
+}
+
+.Background_Smooth_Transition_arrow_conti {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+}
