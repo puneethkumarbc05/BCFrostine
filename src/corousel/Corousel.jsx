@@ -6,13 +6,13 @@ import Slider from "react-slick";
 const Corousel = () => {
     const img = [
         { img: 'https://images4.alphacoders.com/933/thumbbig-933512.webp', pri: '1' },
-        // { img: 'https://images7.alphacoders.com/959/thumbbig-959228.webp', pri: '2' },
-        // { img: 'https://images2.alphacoders.com/910/thumbbig-910289.webp', pri: '3' },
-        // { img: 'https://images3.alphacoders.com/911/thumbbig-911611.webp', pri: '4' },
-        // { img: 'https://images6.alphacoders.com/871/thumbbig-871206.webp', pri: '5' },
+        { img: 'https://images7.alphacoders.com/959/thumbbig-959228.webp', pri: '2' },
+        { img: 'https://images2.alphacoders.com/910/thumbbig-910289.webp', pri: '3' },
+        { img: 'https://images3.alphacoders.com/911/thumbbig-911611.webp', pri: '4' },
+        { img: 'https://images6.alphacoders.com/871/thumbbig-871206.webp', pri: '5' },
     ]
-    const abc = useLocation()
-    const i = abc.state.id
+    // const abc = useLocation()
+    // const i = abc.state.id
     const settings = {
         dots: true,
         infinite: true,
@@ -45,11 +45,6 @@ const Corousel = () => {
         }
         console.log(a()[0]['value'])
     }
-
-    useEffect(() => {
-        console.log(i);
-        console.log(abc)
-    }, [])
 
 
 

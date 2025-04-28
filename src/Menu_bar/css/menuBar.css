@@ -27,7 +27,7 @@
     place-items: center;
     z-index: 1;
     border-radius: 50%;
-    transition: 1s all ease;
+    transition: .5s all ease;
     transform: translateY(0);
 }
 
@@ -39,7 +39,7 @@
     height: 40px;
     width: 40px;
     border-radius: 100px 100px 0 0;
-    transition: 1s all ease;
+    transition: .5s all ease;
 }
 
 .menu-active {

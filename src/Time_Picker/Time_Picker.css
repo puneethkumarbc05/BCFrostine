@@ -1,0 +1,143 @@
+.contianer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 24px 0 rgb(45 206 66 / 84%);
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.numbers {
+    --numRotateVal: 0deg;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: rotate(var(--numRotateVal)) translateY(-115px);
+    font: normal 500 1rem OpenSans-Bold;
+    cursor: pointer;
+    bottom: 50%;
+    transform-origin: bottom;
+    display: grid;
+    place-items: center;
+}
+
+.num1 {
+    --numRotateVal: 30deg;
+}
+
+.num2 {
+    --numRotateVal: 60deg;
+}
+
+.num3 {
+    --numRotateVal: 90deg;
+}
+
+.num4 {
+    --numRotateVal: 120deg;
+}
+
+.num5 {
+    --numRotateVal: 150deg;
+}
+
+.num6 {
+    --numRotateVal: 180deg;
+}
+
+.num7 {
+    --numRotateVal: 210deg;
+}
+
+.num8 {
+    --numRotateVal: 240deg;
+}
+
+.num9 {
+    --numRotateVal: 270deg;
+}
+
+.num10 {
+    --numRotateVal: 300deg;
+}
+
+.num11 {
+    --numRotateVal: 330deg;
+}
+
+.num12 {
+    --numRotateVal: 0deg;
+}
+
+.hands {
+    --handRotateValue: 0deg;
+    --handWidth: 0;
+    --handHeight: 0;
+    --handColor: yellowgreen;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    /* transform: translateX(-50%) rotate(calc(var(--handRotateValue) * 30deg)); */
+    transform: translateX(-50%) rotate(calc(var(--handRotateValue)));
+    width: var(--handWidth);
+    height: var(--handHeight);
+    background-color: var(--handColor);
+    transform-origin: bottom;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: var(--handleZIndex);
+}
+
+.secondsHand {
+    --handWidth: 3px;
+    --handHeight: 44%;
+    --handColor: red;
+    --handleZIndex: 4;
+}
+
+.minsHand {
+    --handWidth: 10px;
+    --handHeight: 38%;
+    --handColor: rgb(154, 205, 50, 30%);
+    --handleZIndex: 3;
+}
+
+.hoursHand {
+    --handWidth: 15px;
+    --handHeight: 30%;
+    --handColor: rgb(154, 205, 50, 30%);
+    --handleZIndex: 2;
+}
+
+.centerDot {
+    position: absolute;
+    background-color: rgb(154, 205, 50, 100%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    z-index: 6;
+}
+
+/* .hands::after {
+    content: "";
+    position: absolute;
+    background-color: yellowgreen;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 50%;
+    top: 0%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+} */
